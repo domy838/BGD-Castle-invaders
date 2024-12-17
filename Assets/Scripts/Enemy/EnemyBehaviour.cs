@@ -6,13 +6,6 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public AudioClip destructionSFX;
 
-    // physical simulation hits. For Unity to call this function, at least one of the colliding objects
-	// needs to have their RigidBody component set to "Dynamic" for Body Type
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        print("I Collided!");
-    }
-
     // Unity calls this function if the Collider on the game object has "Is Trigger" checked.
 	// Then it doesn't physically react to hits but still detects them
     private void OnTriggerEnter2D(Collider2D collision)
@@ -33,5 +26,13 @@ public class EnemyBehaviour : MonoBehaviour
 			// so the sound keeps playing even after it's destroyed
             AudioSource.PlayClipAtPoint(destructionSFX, transform.position);
         }
+        else if (collision.tag == "End")
+        {
+            GameOver();
+        }
+    }
+    void GameOver()
+    {
+        Time.timeScale = 0;
     }
 }
