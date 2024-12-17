@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     public float maxPosX;
 
     public float moveDistance = 1f;
+    public float moveForward = -1f;
 
     bool isMovingRight = true;
 
@@ -55,26 +56,46 @@ public class EnemyController : MonoBehaviour
             // Moving right
             Vector3 currentPos = transform.position;
             Vector3 newPos = currentPos + new Vector3(moveDistance, 0f);
-            transform.position = newPos;
+            
 
-            // If aliens group reached the right-most edge, flip their direction
-            if (transform.position.x >= maxPosX)
+            // If aliens group would reache the right-most edge, flip their direction and only move forward
+            if (newPos.x >= maxPosX)
             {
                 isMovingRight = false;
+                MoveStepForward();
             }
+            // Else move to the right
+            else
+            {
+                transform.position = newPos;
+            }
+            
         }
         else
         {
             // Moving left
             Vector3 currentPos = transform.position;
             Vector3 newPos = currentPos - new Vector3(moveDistance, 0f);
-            transform.position = newPos;
+            
 
-            // If aliens group reached the left-most edge, flip their direction
-            if (transform.position.x <= minPosX)
+            // If aliens group would reach the left-most edge, flip their direction and only move forward
+            if (newPos.x <= minPosX)
             {
                 isMovingRight = true;
+                MoveStepForward();
+            }
+            // Else move to the left
+            else
+            {
+                transform.position = newPos;
             }
         }
+    }
+
+    void MoveStepForward()
+    {
+        Vector3 currentY = transform.position;
+        Vector3 newY = currentY + new Vector3(0f, moveForward);
+        transform.position = newY;
     }
 }
