@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public string text = "";
+
+    public GameObject shownText;
+    public GameObject restartButton;
+    public GameObject nextLevelButton;
+    public GameObject menuButton;
+
     // Start is called before the first frame update
     void Start()
     {

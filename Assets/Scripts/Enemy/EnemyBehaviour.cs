@@ -26,13 +26,16 @@ public class EnemyBehaviour : MonoBehaviour
 			// so the sound keeps playing even after it's destroyed
             AudioSource.PlayClipAtPoint(destructionSFX, transform.position);
         }
+        // If they come to th ecastle, you loose
         else if (collision.tag == "End")
         {
             GameOver();
         }
     }
+    
     void GameOver()
     {
+        // Pause the game
         Time.timeScale = 0;
     }
 }
