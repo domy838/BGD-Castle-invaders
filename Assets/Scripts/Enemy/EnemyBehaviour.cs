@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    private GameController skripta;
     public AudioClip destructionSFX;
+
+    void Start()
+    {
+        skripta = GameObject.Find("GameController").GetComponent<GameController>();
+    }
 
     // Unity calls this function if the Collider on the game object has "Is Trigger" checked.
 	// Then it doesn't physically react to hits but still detects them
@@ -25,17 +31,12 @@ public class EnemyBehaviour : MonoBehaviour
 			// Play an audio clip in the scene and not attached to the alien
 			// so the sound keeps playing even after it's destroyed
             AudioSource.PlayClipAtPoint(destructionSFX, transform.position);
+            skripta.EnemyDestroyed();
         }
         // If they come to th ecastle, you loose
         else if (collision.tag == "End")
         {
-            GameOver();
+            skripta.GameOver();
         }
-    }
-    
-    void GameOver()
-    {
-        // Pause the game
-        Time.timeScale = 0;
     }
 }

@@ -1,30 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
-    public string text = "";
+    public int numberOfEnemies;
+    public string showText = "";
 
-    public GameObject shownText;
+    public GameObject gameOverPanel;
+    public TMP_Text declaration;
     public GameObject restartButton;
     public GameObject nextLevelButton;
     public GameObject menuButton;
 
     // Start is called before the first frame update
     void Start()
-    {
-        
+    {   
+        // Set all the menu invisible
+        gameOverPanel.SetActive(false);
+        restartButton.SetActive(false);
+        nextLevelButton.SetActive(false);
+        menuButton.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {   
+        // If all enemies are dead, you win
+        if(numberOfEnemies <= 0)
+        {   
+            // Show menu for victory
+            showText = "You Win!";
+            declaration.text = showText;
+            gameOverPanel.SetActive(true);
+            nextLevelButton.SetActive(true);
+            menuButton.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
-    void GameOver()
+    public void GameOver()
     {
+        // You lost, so show menu for lost game
+        showText = "You Lost!";
+        declaration.text = showText;
+        gameOverPanel.SetActive(true);
+        restartButton.SetActive(true);
+        menuButton.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    public void EnemyDestroyed()
+    {
+        numberOfEnemies -= 1;
+        print(numberOfEnemies);
     }
 }
