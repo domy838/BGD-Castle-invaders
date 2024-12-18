@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8722474558991701063}
   m_Layer: 0
-  m_Name: Shield Group 1
+  m_Name: Shield Group
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
