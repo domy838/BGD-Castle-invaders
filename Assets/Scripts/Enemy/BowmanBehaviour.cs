@@ -6,11 +6,19 @@ public class BowmanBehaviour : MonoBehaviour
 {
     private GameController skripta;
     public AudioClip destructionSFX;
+    public AudioSource shootingSFX;
+
+    public float minTime;
+    public float maxTime;
+    public float nextFire = 3f;
+
+    public GameObject arrow;
 
     void Start()
     {
         // Need to know which script to use
         skripta = GameObject.Find("GameController").GetComponent<GameController>();
+        nextFire = nextFire + Random.Range(minTime, maxTime);
     }
 
     // Unity calls this function if the Collider on the game object has "Is Trigger" checked.
@@ -41,5 +49,16 @@ public class BowmanBehaviour : MonoBehaviour
             // Call function in GameController, that ends the game on a loss
             skripta.GameOver();
         }
+    }
+
+    void FixedUpdate()
+    {
+        if(Time.time >= nextFire)
+        {   
+            print("I fired");
+            Instantiate(arrow, transform.position, Quaternion.identity);
+            shootingSFX.Play();
+        }
+        nextFire = nextFire + Random.Range(minTime, maxTime);
     }
 }

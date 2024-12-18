@@ -8,7 +8,7 @@ public class ShieldBehaviour : MonoBehaviour
     private GameController skripta;
 
     public AudioClip destructionSFX;
-    public AudioClip firstHitSFX;
+    public AudioSource firstHitSFX;
 
     public int enemyLives = 2;
 
@@ -47,7 +47,7 @@ public class ShieldBehaviour : MonoBehaviour
             else
             {
                 // Play sound when hit
-                AudioSource.PlayClipAtPoint(firstHitSFX, transform.position);
+                firstHitSFX.Play();
                 // Change sprite image
                 shieldKnight.sprite = newSprite;
             }
