@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
     public GameObject nextLevelButton;
     public GameObject menuButton;
 
+    public List<GameObject> hearts;
+
     // Start is called before the first frame update
     void Start()
     {   
@@ -54,7 +56,13 @@ public class GameController : MonoBehaviour
 
     public void EnemyDestroyed()
     {
+        // One less enemy on screen
         numberOfEnemies -= 1;
         print(numberOfEnemies);
+    }
+
+    public void LooseLife(int lives)
+    {
+        hearts[lives].SetActive(false);
     }
 }

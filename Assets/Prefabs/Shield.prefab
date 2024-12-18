@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3871865298318731701}
   - component: {fileID: 1008526758902884145}
   - component: {fileID: 1304141677019810532}
-  - component: {fileID: 2571959578590651294}
+  - component: {fileID: 150825166681034687}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Enemy
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1960694945
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 34a90b84facac7c489fd3547124ec9c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78782, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2571959578590651294
+--- !u!114 &150825166681034687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +141,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3871865298318731700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a08ceecdfb38ea469495665b36fe552, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e516f1f47c98f347a8535e1de03c3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionSFX: {fileID: 8300000, guid: 671732ad81db07743b44746fa02fcdb5, type: 3}
+  destructionSFX: {fileID: 8300000, guid: 66ccddb2f60e4b84c878e45c14daf9a4, type: 3}
+  firstHitSFX: {fileID: 8300000, guid: 9371b4daaf39e384a96706b7f38501aa, type: 3}
+  enemyLives: 2
+  shieldKnight: {fileID: 3871865298318731701}
+  newSprite: {fileID: 21300000, guid: 8b457579d891ca845aac115cca37213e, type: 3}

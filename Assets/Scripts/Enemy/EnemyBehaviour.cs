@@ -9,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Start()
     {
+        // Need to know which script to use
         skripta = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
@@ -31,11 +32,13 @@ public class EnemyBehaviour : MonoBehaviour
 			// Play an audio clip in the scene and not attached to the alien
 			// so the sound keeps playing even after it's destroyed
             AudioSource.PlayClipAtPoint(destructionSFX, transform.position);
+            // Call the function in GameController, that counts the number of enemies
             skripta.EnemyDestroyed();
         }
         // If they come to th ecastle, you loose
         else if (collision.tag == "End")
         {
+            // Call function in GameController, that ends the game on a loss
             skripta.GameOver();
         }
     }

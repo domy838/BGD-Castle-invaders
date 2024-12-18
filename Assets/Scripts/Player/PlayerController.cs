@@ -10,15 +10,21 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer playerSprite;
     private float playerSpriteHalfWidth;
 
-
     public float rightScreenEdge;
     public float leftScreenEdge;
 
+    public AudioClip hurtSFX;
+
+    private GameController skripta;
+
+    public int lives = 3;
 
     // Start is called before the first frame update
     void Start()
     {
         SetupScreenBounds();
+        // Need to know which script to use
+        skripta = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -72,21 +78,30 @@ public class PlayerController : MonoBehaviour
         playerSpriteHalfWidth = playerSprite.bounds.size.x / 2f;
     }
 
+private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print("I was triggered!");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		// Check the other colliding object's tag to know if it's
+		// indeed a enemy projectile
+        if (collision.tag == "EnemyArrow")
+        {
+            // We loose a life
+            lives -= 1;
+            skripta.LooseLife(lives);
+            
+            if(lives == 0)
+            {
+                Destroy(gameObject);
+                skripta.GameOver();
+            }
+            
+            // Destroy the projectile game object
+            Destroy(collision.gameObject);
+			
+			// Play an audio clip in the scene and not attached to the alien
+			// so the sound keeps playing even after it's destroyed
+            AudioSource.PlayClipAtPoint(hurtSFX, transform.position);
+        }
+    }
 }
