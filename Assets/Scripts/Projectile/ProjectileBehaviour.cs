@@ -37,7 +37,7 @@ public class ProjectileBehaviour : MonoBehaviour
         // Moves the game object along the Y-axis (X is 0f), and we make the Y value into 
         // a variable so we can change the direction (up or down) and make the script reusable
         // in different situations. (can do the same for X and then it'll move in any direction you want)
-        Vector3 translationVector = new Vector3(0f, direction) * moveSpeed * Time.deltaTime;
+        Vector3 translationVector = new Vector3(0f, 1f) * moveSpeed * Time.deltaTime * direction;
         transform.Translate(translationVector);
     }
 }

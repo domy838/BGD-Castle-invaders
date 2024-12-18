@@ -10,16 +10,19 @@ public class Shooter : MonoBehaviour
 	// Reference to the AudioSource component on the player
 	public AudioSource sfxPlayer;
 
+    private GameController skripta;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        skripta = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
+    {   
+        // If we pressed space and it's not game over yet
+        if (Input.GetButtonDown("Jump") && !skripta.isGameOver)
         {
             Shoot();
         }

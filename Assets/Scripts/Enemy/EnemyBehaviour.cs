@@ -17,8 +17,6 @@ public class EnemyBehaviour : MonoBehaviour
 	// Then it doesn't physically react to hits but still detects them
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("I was triggered!");
-
 		// Check the other colliding object's tag to know if it's
 		// indeed a player projectile
         if (collision.tag == "Laser")

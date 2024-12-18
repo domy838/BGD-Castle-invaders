@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
 
     public List<GameObject> hearts;
 
+    public bool isGameOver = false;
+
     // Start is called before the first frame update
     void Start()
     {   
@@ -34,6 +36,7 @@ public class GameController : MonoBehaviour
         if(numberOfEnemies <= 0)
         {   
             // Show menu for victory
+            isGameOver = true;
             showText = "You Win!";
             declaration.text = showText;
             gameOverPanel.SetActive(true);
@@ -46,6 +49,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         // You lost, so show menu for lost game
+        isGameOver = true;
         showText = "You Lost!";
         declaration.text = showText;
         gameOverPanel.SetActive(true);

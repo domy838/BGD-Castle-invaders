@@ -10,7 +10,7 @@ public class BowmanBehaviour : MonoBehaviour
 
     public float minTime;
     public float maxTime;
-    public float nextFire = 3f;
+    public float nextFire;
 
     public GameObject arrow;
 
@@ -18,15 +18,13 @@ public class BowmanBehaviour : MonoBehaviour
     {
         // Need to know which script to use
         skripta = GameObject.Find("GameController").GetComponent<GameController>();
-        nextFire = nextFire + Random.Range(minTime, maxTime);
+        nextFire = Time.time + Random.Range(0, 5);
     }
 
     // Unity calls this function if the Collider on the game object has "Is Trigger" checked.
 	// Then it doesn't physically react to hits but still detects them
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("I was triggered!");
-
 		// Check the other colliding object's tag to know if it's
 		// indeed a player projectile
         if (collision.tag == "Laser")
@@ -55,10 +53,10 @@ public class BowmanBehaviour : MonoBehaviour
     {
         if(Time.time >= nextFire)
         {   
-            print("I fired");
             Instantiate(arrow, transform.position, Quaternion.identity);
             shootingSFX.Play();
+            nextFire = nextFire + Random.Range(minTime, maxTime);
         }
-        nextFire = nextFire + Random.Range(minTime, maxTime);
+        
     }
 }
