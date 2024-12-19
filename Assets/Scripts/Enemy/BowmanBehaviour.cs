@@ -48,11 +48,14 @@ public class BowmanBehaviour : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        // If its time for the next shot
         if(Time.time >= nextFire)
         {   
+            // Shoot
             Instantiate(arrow, transform.position, Quaternion.identity);
             shootingSFX.Play();
+            // New time for the next shot
             nextFire = nextFire + Random.Range(minTime, maxTime);
         }
         

@@ -69,6 +69,7 @@ public class GameController : MonoBehaviour
         // One less enemy on screen
         numberOfEnemies -= 1;
         print(numberOfEnemies);
+        // Play sound of dying
         enemyDeadSFX.Play();
     }
 

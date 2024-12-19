@@ -16,18 +16,13 @@ public class ExplosionBehaviour : MonoBehaviour
         skripta = GameObject.Find("GameController").GetComponent<GameController>();
         Destroy(gameObject, destroyDelay);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check the other colliding object's tag to know if it's the end
+        // Check the other colliding object's tag to know if it's the eplayer
         if (collision.tag == "Player" && timesCollided == 0)
-        {
+        {   
+            // If it is, player looses a life
             skripta.LooseLife();
             timesCollided += 1;
         }

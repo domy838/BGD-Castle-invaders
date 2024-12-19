@@ -33,9 +33,6 @@ public class FireballBehaviour : MonoBehaviour
 
             // Destroy the fireball game object
             Destroy(gameObject);
-			
-			// Play an audio clip in the scene and not attached to the fireball
-			// so the sound keeps playing even after it's destroyed
         }
     }
 }
