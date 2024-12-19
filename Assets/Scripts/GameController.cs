@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour
 
     public int lives = 3;
 
+    public AudioSource hurtSFX;
+
     // Start is called before the first frame update
     void Start()
     {   
@@ -79,5 +81,8 @@ public class GameController : MonoBehaviour
         }
         // Make teh hearts dissapear
         hearts[lives].SetActive(false);
+        // Play an audio clip in the scene and not attached to the alien
+		// so the sound keeps playing even after it's destroyed
+        hurtSFX.Play();
     }
 }
