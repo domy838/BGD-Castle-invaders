@@ -11,6 +11,8 @@ public class BowmanBehaviour : MonoBehaviour
     public float minTime;
     public float maxTime;
     public float nextFire;
+    public float firstMinFire;
+    public float firstMaxFire;
 
     public GameObject arrow;
 
@@ -18,7 +20,7 @@ public class BowmanBehaviour : MonoBehaviour
     {
         // Need to know which script to use
         skripta = GameObject.Find("GameController").GetComponent<GameController>();
-        nextFire = Time.time + Random.Range(1, 6);
+        nextFire = Time.time + Random.Range(firstMinFire, firstMaxFire);
     }
 
     // Unity calls this function if the Collider on the game object has "Is Trigger" checked.

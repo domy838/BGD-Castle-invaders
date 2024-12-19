@@ -80,21 +80,12 @@ public class PlayerController : MonoBehaviour
 
 private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("I was triggered!");
-
 		// Check the other colliding object's tag to know if it's
 		// indeed a enemy projectile
         if (collision.tag == "EnemyArrow")
         {
             // We loose a life
-            lives -= 1;
-            skripta.LooseLife(lives);
-            
-            if(lives == 0)
-            {
-                Destroy(gameObject);
-                skripta.GameOver();
-            }
+            skripta.LooseLife();
             
             // Destroy the projectile game object
             Destroy(collision.gameObject);

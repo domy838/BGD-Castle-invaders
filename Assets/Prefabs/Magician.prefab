@@ -147,9 +147,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destructionSFX: {fileID: 8300000, guid: 66ccddb2f60e4b84c878e45c14daf9a4, type: 3}
   shootingSFX: {fileID: 2222320347660449282}
-  minTime: 6
-  maxTime: 11
+  minTime: 5
+  maxTime: 15
   nextFire: 3
+  firstMinFire: 1
+  firstMaxFire: 15
   arrow: {fileID: 6613934911611611560, guid: 8653f05fa2683c240a71ee239000b123, type: 3}
 --- !u!82 &2222320347660449282
 AudioSource:
@@ -163,7 +165,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3eb6aa0ce0aef5e428436a2204d528aa, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
 
     public bool isGameOver = false;
 
+    public int lives = 3;
+
     // Start is called before the first frame update
     void Start()
     {   
@@ -66,8 +68,16 @@ public class GameController : MonoBehaviour
         print(numberOfEnemies);
     }
 
-    public void LooseLife(int lives)
-    {
+    public void LooseLife()
+    {   
+        // We loose a life
+        lives -= 1;
+        // If we are out of lives its game over
+        if(lives <= 0)
+        {
+            GameOver();
+        }
+        // Make teh hearts dissapear
         hearts[lives].SetActive(false);
     }
 }
