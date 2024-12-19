@@ -7,10 +7,12 @@ public class ExplosionBehaviour : MonoBehaviour
     public float destroyDelay = 2f;
     public int timesCollided = 0;
     private GameController skripta;
+    public AudioSource explosionSFX;
 
     // Start is called before the first frame update
     void Start()
     {   
+        explosionSFX.Play();
         skripta = GameObject.Find("GameController").GetComponent<GameController>();
         Destroy(gameObject, destroyDelay);
     }

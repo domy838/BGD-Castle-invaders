@@ -30,18 +30,19 @@ public class BowmanBehaviour : MonoBehaviour
 		// Check the other colliding object's tag to know if it's
 		// indeed a player projectile
         if (collision.tag == "Laser")
-        {
-            // Destroy the alien game object
+        {	
+            // Destroy the alien game object after the sound of death has played
             Destroy(gameObject);
-			
+
             // Destroy the projectile game object
             Destroy(collision.gameObject);
 			
-			// Play an audio clip in the scene and not attached to the alien
-			// so the sound keeps playing even after it's destroyed
-            AudioSource.PlayClipAtPoint(destructionSFX, transform.position);
             // Call the function in GameController, that counts the number of enemies
             skripta.EnemyDestroyed();
+
+            // Play an audio clip in the scene and not attached to the alien
+			// so the sound keeps playing even after it's destroyed
+            AudioSource.PlayClipAtPoint(destructionSFX, transform.position);
         }
         // If they come to th ecastle, you loose
         else if (collision.tag == "End")

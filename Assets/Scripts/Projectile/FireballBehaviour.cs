@@ -5,7 +5,6 @@ using UnityEngine;
 public class FireballBehaviour : MonoBehaviour
 {
     public float moveSpeed = 3f;
-    public AudioClip explosionSFX;
     public GameObject explosion;
 
     // Start is called before the first frame update
@@ -29,7 +28,6 @@ public class FireballBehaviour : MonoBehaviour
         // Check the other colliding object's tag to know if it's the end
         if (collision.tag == "End")
         {
-            print("I reached the end");
             // Make the explosion game object visible
             Instantiate(explosion, transform.position, Quaternion.identity);
 
@@ -38,7 +36,6 @@ public class FireballBehaviour : MonoBehaviour
 			
 			// Play an audio clip in the scene and not attached to the fireball
 			// so the sound keeps playing even after it's destroyed
-            AudioSource.PlayClipAtPoint(explosionSFX, transform.position);
         }
     }
 }

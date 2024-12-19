@@ -545,7 +545,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5532782112780663590, guid: 390ecafa345db6d4a90ed799ee01b656, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 390ecafa345db6d4a90ed799ee01b656, type: 3}
 --- !u!1 &676063518
 GameObject:
@@ -602,6 +603,7 @@ MonoBehaviour:
   - {fileID: 1295034363}
   - {fileID: 971009546}
   isGameOver: 0
+  lives: 3
 --- !u!1 &848729307 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8282605717347492442, guid: 390ecafa345db6d4a90ed799ee01b656, type: 3}
@@ -619,7 +621,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 997fb2d7b1d79ac47abefbd3048263ce, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -939,7 +941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Next Level
+  m_text: 'Continue
 
 '
   m_isRightToLeft: 0

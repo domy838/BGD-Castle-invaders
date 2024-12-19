@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  explosionSFX: {fileID: 8300000, guid: 11090f2050b424347995f46b9968bfdc, type: 3}
+  explosionSFX: {fileID: 8300000, guid: 0582fc715be6c0546a2dbe7676700fbb, type: 3}
   explosion: {fileID: 407625428192312153, guid: 54508d36ebfe4064f9a5ba7e2b4eb9b2, type: 3}
 --- !u!50 &63841092518959910
 Rigidbody2D:
