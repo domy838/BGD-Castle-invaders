@@ -18,7 +18,7 @@ public class BowmanBehaviour : MonoBehaviour
     {
         // Need to know which script to use
         skripta = GameObject.Find("GameController").GetComponent<GameController>();
-        nextFire = Time.time + Random.Range(0, 5);
+        nextFire = Time.time + Random.Range(1, 6);
     }
 
     // Unity calls this function if the Collider on the game object has "Is Trigger" checked.
@@ -49,7 +49,7 @@ public class BowmanBehaviour : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if(Time.time >= nextFire)
         {   
