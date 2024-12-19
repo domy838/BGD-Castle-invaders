@@ -623,7 +623,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 627279107}
   declaration: {fileID: 1607783329}
   restartButton: {fileID: 1911277273}
-  nextLevelButton: {fileID: 0}
+  nextLevelButton: {fileID: 256948121}
   menuButton: {fileID: 1258238030}
   hearts:
   - {fileID: 1891887633}
