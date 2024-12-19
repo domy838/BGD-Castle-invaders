@@ -5,7 +5,6 @@ using UnityEngine;
 public class BowmanBehaviour : MonoBehaviour
 {
     private GameController skripta;
-    public AudioClip destructionSFX;
     public AudioSource shootingSFX;
 
     public float minTime;
@@ -39,10 +38,6 @@ public class BowmanBehaviour : MonoBehaviour
 			
             // Call the function in GameController, that counts the number of enemies
             skripta.EnemyDestroyed();
-
-            // Play an audio clip in the scene and not attached to the alien
-			// so the sound keeps playing even after it's destroyed
-            AudioSource.PlayClipAtPoint(destructionSFX, transform.position);
         }
         // If they come to th ecastle, you loose
         else if (collision.tag == "End")

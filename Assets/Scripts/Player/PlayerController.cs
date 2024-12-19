@@ -89,10 +89,6 @@ private void OnTriggerEnter2D(Collider2D collision)
             
             // Destroy the projectile game object
             Destroy(collision.gameObject);
-			
-			// Play an audio clip in the scene and not attached to the alien
-			// so the sound keeps playing even after it's destroyed
-            AudioSource.PlayClipAtPoint(hurtSFX, transform.position);
         }
     }
 }

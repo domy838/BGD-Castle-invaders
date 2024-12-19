@@ -7,7 +7,6 @@ public class ShieldBehaviour : MonoBehaviour
 {
     private GameController skripta;
 
-    public AudioClip destructionSFX;
     public AudioSource firstHitSFX;
 
     public int enemyLives = 2;
@@ -38,10 +37,6 @@ public class ShieldBehaviour : MonoBehaviour
                 // Destroy the alien game object after the sound of death has played
                 Destroy(gameObject);
                 skripta.EnemyDestroyed();
-                // Play an audio clip in the scene and not attached to the alien
-			    // so the sound keeps playing even after it's destroyed
-                AudioSource.PlayClipAtPoint(destructionSFX, transform.position);
-
             }
             else
             {

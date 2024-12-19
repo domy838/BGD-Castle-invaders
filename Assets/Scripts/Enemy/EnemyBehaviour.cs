@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
     private GameController skripta;
-    public AudioClip destructionSFX;
 
     void Start()
     {
@@ -23,16 +22,12 @@ public class EnemyBehaviour : MonoBehaviour
         {
             // Destroy the alien game object after the sound of death has played
             Destroy(gameObject);
-            
+
             // Destroy the projectile game object
             Destroy(collision.gameObject);
 			
             // Call the function in GameController, that counts the number of enemies
             skripta.EnemyDestroyed();
-
-            // Play an audio clip in the scene and not attached to the alien
-			// so the sound keeps playing even after it's destroyed
-            AudioSource.PlayClipAtPoint(destructionSFX, transform.position);
         }
         // If they come to th ecastle, you loose
         else if (collision.tag == "End")

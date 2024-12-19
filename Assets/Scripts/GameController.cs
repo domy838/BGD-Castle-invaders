@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     public int lives = 3;
 
     public AudioSource hurtSFX;
+    public AudioSource enemyDeadSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +69,7 @@ public class GameController : MonoBehaviour
         // One less enemy on screen
         numberOfEnemies -= 1;
         print(numberOfEnemies);
+        enemyDeadSFX.Play();
     }
 
     public void LooseLife()
