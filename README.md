@@ -24,3 +24,4 @@ UI:
  - Added a main menu
  - Added a game over screen
  - Added a you win screen
+ - Added hearts that show how many lives player has
